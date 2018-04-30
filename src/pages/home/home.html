@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-buttons end royal>
+            <button ion-button icon-only>
+                <ion-badge></ion-badge>  <!-- number of items on cart here-->
+                <ion-icon name="cart"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+    <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel">
+    </ion-searchbar>
+</ion-header>
+<ion-content>
+
+<!-- take data from component carousel. -->
+    <carousel></carousel> 
+<!-- take data from component category-tile. -->
+    <category-tile></category-tile>
+    <!-- take data from component deals. -->
+    <!-- <deals></deals> -->
+</ion-content>

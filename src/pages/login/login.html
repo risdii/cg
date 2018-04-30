@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Login</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding text-center>
+    <p style="margin-top: -10px;margin-bottom: 0px;">
+        
+        <img src="../../assets/images/logo/CG LOGO FINAL-Recovered.png" style="object-fit: contain;border-radius: 46%;width: 140px;height: 140px;" />
+    </p>
+    
+            <form (ngSubmit)="login()" [formGroup]="loginForm">
+            <ion-list inset>
+               
+                <ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched', 'dirty']) }">
+                    <ion-input floating type="text" placeholder="Email" formControlName="email"></ion-input>
+                </ion-item>
+
+                <div ngxErrors="email" #emailErrors="ngxErrors">
+                    <div [ngxError]="['email', 'required']" [when]="['touched', 'dirty']">It should be a valid email</div>
+                </div>
+                
+                <ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
+                    <ion-input floating type="password" placeholder="Password" formControlName="password"></ion-input>
+                </ion-item>
+                <div ngxErrors="password" #passwordErrors="ngxErrors">
+                    <div [ngxError]="['minlength', 'required']" [when]="['touched']">It should be at least 6 characters</div>
+                </div>
+
+            </ion-list>
+            <div style="">
+                    <div class="form-error">{{loginError}}</div>
+            <br>
+            <button (click)="login()" style="  background: #1786d9; width:100px; margin-left: 8px; " ion-button full type ="submit" [disabled]="!loginForm.valid" class="button-login" block color="dark" >Sign In</button>
+         
+            <button (click)="register()" style=" background: #1786d9; width:100px; margin-left: 8px;" ion-button class="button-login" block color="dark" >Register</button>
+            <br>
+            </div>
+            <div style="">
+                <ion-note style="float: left">
+                    <a (click)="forgotpass()" style="text-transform: initial; width: 120px; height: 30px;" ion-button clear>Forgot Password </a>
+                </ion-note>
+               
+            </div>
+       
+    
+
+    <ion-row style="padding-bottom: 13px;">
+        <ion-col>
+            <button text-lowercase ion-button icon-right color="dark" outline style="width: 120px;">Login with
+                <ion-icon name="logo-facebook"></ion-icon>
+            </button>
+        </ion-col>
+        <ion-col>
+            <button  ion-button icon-left block clear (click)="loginWithGoogle()" text-lowercase ion-button icon-right color="dark" outline style="width: 120px;">Login with
+                <ion-icon name="logo-google"></ion-icon>
+            </button>
+        </ion-col>
+    </ion-row>
+
+</form>
+</ion-content>

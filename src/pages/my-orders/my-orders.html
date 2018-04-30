@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>My Orders</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+   <ion-card [@flyAlternameSlow]="0">
+        <ion-item>
+            <ion-avatar item-left>
+                <img src="assets/img/fashion.png">
+            </ion-avatar>
+            <h2><ion-badge> $1234</ion-badge> Fashion Line Casual Short Sleeve Solid Women's Black Top</h2>
+        </ion-item>
+        <ion-grid>
+            <ion-row>
+                <ion-col width-50 class="heading">Delievered</ion-col>
+                <ion-col width-50 class="margin-bottom: 0px;font-size: 16px;">
+                    <button ion-button small outline  block (click)="reviewsratings()">
+                        Rate and review
+                    </button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+
+    <ion-card [@flyAlternameSlow]="1">
+        <ion-item>
+            <ion-avatar item-left>
+                <img src="assets/img/fashion.png">
+            </ion-avatar>
+            <h2><ion-badge> $1234</ion-badge> Fashion Line Casual Short Sleeve Solid Women's Black Top</h2>
+        </ion-item>
+       <ion-grid>
+            <ion-row>
+                <ion-col width-50 class="heading">Delievered</ion-col>
+                <ion-col width-50 class="col-size">
+                    <button ion-button small outline  block (click)="reviewsratings()">
+                        Rate and review
+                    </button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+    <ion-card [@flyAlternameSlow]="0">
+        <ion-item>
+            <ion-avatar item-left>
+                <img src="assets/img/fashion.png">
+            </ion-avatar>
+            <h2><ion-badge> $1234</ion-badge> Fashion Line Casual Short Sleeve Solid Women's Black Top</h2>
+        </ion-item>
+       <ion-grid>
+            <ion-row>
+                <ion-col width-50 class="heading">Delievered</ion-col>
+                <ion-col width-50 class="col-size">
+                    <button ion-button small outline  block (click)="reviewsratings()">
+                        Rate and review
+                    </button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+</ion-content>
+

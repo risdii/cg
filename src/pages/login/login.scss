@@ -1,0 +1,26 @@
+page-login {
+
+	 .toolbar-background-md {
+        border-color: none;
+        background: transparent;
+    }
+    .toolbar-title {
+        padding: 0 12px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: #303030;
+    }
+    .scroll-content {
+        background-size: cover;
+        //background-image: url(../assets/img/back.jpg) !important;
+    }
+    .button{
+        text-transform: none;
+        display:inline-block; margin-right:10px;
+    }
+    .card{
+        opacity: 0.9;
+    }
+
+    
+}
