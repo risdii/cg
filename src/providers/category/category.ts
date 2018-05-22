@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class CategoryProvider {
     categories = [
-        { name: 'fashion', image: 'assets/img/fashion.png' },
-        { name: 'groceries', image: 'assets/img/groceries.png' },
-        { name: 'gifts', image: 'assets/img/gifts.png' },
-        { name: 'kids', image: 'assets/img/kids.png' },
-        { name: 'home', image: 'assets/img/home.png' },
-        { name: 'sports', image: 'assets/img/sports.png' }
+        { name: 'Beverages', image: 'assets/img/beverages2.png' },
+        { name: 'Food', image: 'assets/img/food3.png' }, 
+        { name: 'Household', image: 'assets/img/household.png' },
+        { name: 'Kitchen Essentials', image: 'assets/img/kitchen.png' },
+        { name: 'Medicine', image: 'assets/img/meds.png' },
+        { name: 'Personal Hygiene', image: 'assets/img/ph.png' },
+        { name: 'Stationery', image: 'assets/img/stationery.png' }
+
     ];
 
     getCategories() {

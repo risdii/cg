@@ -3,34 +3,21 @@
     <div class="">
       <ion-thumbnail>
       <img src="../assets/images/logo/GRADIENT LOGO.png">
-      <!-- <ion-row style="background:#2f3974;color: #ffffff;height: 50px;">
-        <ion-card style="font-weight: bold;background:#2f3974; margin-top: 1px; padding: 0px;box-shadow: none">
-            <ion-card-content style="font-size:15px !important;font-weight: 400;">
-                <a style="font-size: 20px;padding-left: 15px;color:white"  (click)="login()" clear menuToggle> Sign In </a>
-            </ion-card-content>
-        </ion-card>
-    </ion-row> -->
     </ion-thumbnail>
-    
-    
      </div>
+   
      <ion-row style="background:#ffffff;color: #ffffff;height: 29px;margin-top: -26px;margin-left: -30px;padding-bottom: -40px;">
         <ion-card style="font-weight: bold;background: transparent; margin-top: -6px; padding: 0px;box-shadow: none">
-            <ion-card-content style="font-size:15px !important;font-weight: 400;margin-top: -15px;">
-                <a style="font-size: 20px;  padding-left: 30px;color:white"  (click)="login()" clear menuToggle> <b>Sign In</b> </a>
+            <ion-card-content  style="font-size:15px !important;font-weight: 400;margin-top: -15px;"   >
+                <a style="font-size: 20px;  padding-left: 30px;color:white"  (click)="login()"  clear menuToggle > <b>Sign In</b></a>
+    
             </ion-card-content>
         </ion-card>
     </ion-row>
-  </ion-header>
+</ion-header>
     <ion-content>
-        <!-- <ion-row style="background:#2f3974;color: #ffffff;height: 50px;">
-            <ion-card style="font-weight: bold;background:#2f3974; margin-top: 1px; padding: 0px;box-shadow: none">
-                <ion-card-content style="font-size:15px !important;/*font-weight: 400;*/">
-                    <a style="font-size: 20px;padding-left: 15px;color:white"  (click)="login()" clear menuToggle> Sign In </a>
-                </ion-card-content>
-            </ion-card>
-        </ion-row> -->
         <ion-list>
+            <ion-item>
             <button menuClose ion-item (click)="openPage(home)">
                 <ion-icon name="{{home.icon}}" item-left></ion-icon>
                 {{home.title}}
@@ -38,16 +25,28 @@
             <button menuClose ion-item (click)="openCart()">
                 <ion-icon name="cart" item-left></ion-icon>
                     Cart
-                <ion-note item-right style="color:#fc6a65;">
+                <ion-note item-right style="color:#0c08ff;">
                    <ion-badge> 3</ion-badge>
                 </ion-note>
-
             </button>
             <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
             <ion-icon name="{{p.icon}}" item-left></ion-icon>
                 {{p.title}}
-            </button>
+            </button>     
+        </ion-item> 
         </ion-list>
     </ion-content>
 </ion-menu>
 <ion-nav #content [root]="rootPage"></ion-nav>
+
+ <!-- <ion-list-header *ngIf="auth.getEmail()">{{auth.getEmail()}}</ion-list-header>
+
+    <ion-item (click)="logout()" *ngIf="auth.authenticated">
+        <ion-icon name="log-out" item-left></ion-icon>
+        Log out
+    </ion-item>
+        
+     <ion-item (click)="login()" *ngIf="!auth.authenticated">
+        <ion-icon name="log-in" item-left></ion-icon>
+        Log in
+    </ion-item>  -->

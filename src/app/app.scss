@@ -12,12 +12,15 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+
 .header-background-image {
     background-image: url(../assets/images/logo/login.png);
     height: 200px;
     background-size: cover;
     background-position: center;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid rgb(5, 5, 5);
 }
 
 .header-background-image::before {
@@ -30,7 +33,7 @@
     position: absolute;
     pointer-events: none;
     mix-blend-mode: multiply;
-    background-color: #2f3974 !important;
+    background-color: #fdfdfd !important;
 }
 
 .zoom-in {
@@ -107,7 +110,7 @@
     margin: 0px;
     height: 50px;
     color: #4958b2;
-    background: #f2f2f2;
+    background: #0a0a0a;
     text-transform: none;
 }
 

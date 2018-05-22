@@ -1,8 +1,8 @@
-    <ion-row style="padding: 3px;">
-        <ion-col col-4 style="padding: 3px;"  [ngClass]="animateClass" *ngFor=" let item of animateItems; let i=index "  (click)="openCategory(item.name)">
-            <ion-card style="margin: 0px 0px 0px 0px;    width: calc(100%);">
-                <img src="{{item.image}}" style="    padding: 3px;" />
-                <p style="    margin-top: -24px;color: #fff;    text-align: center;    text-shadow: 1px 2px 2px #000;">
+    <ion-row style="padding: 0px;">
+        <ion-col col-4 style="padding: 0px;"  [ngClass]="animateClass" *ngFor=" let item of animateItems; let i=index "  (click)="openCategory(item.name)">
+            <ion-card style="margin: 1px 1px 1px 1px;  width: calc(99%); box-shadow: none; background-color:#fffafa">
+                <img src="{{item.image}}" style=" padding: 10px; color: black; " />
+                <p style="    margin-top: -2px;color: rgb(20, 19, 19);    text-align: center;">
                     {{item.name}}
                 </p>
             </ion-card>

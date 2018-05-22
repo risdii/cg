@@ -7,10 +7,11 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 
+import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { AuthService } from '../services/auth.service';
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
-import { firebaseConfig } from '../config'; 
+//import { firebaseConfig } from '../config/config'; 
 import { FormsModule } from '@angular/forms';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { NgInputPasswordComponent } from 'ng-input-password/ng-input-password';
@@ -94,7 +95,7 @@ export function providers() {
   imports: [
     
     IonicModule.forRoot(MyApp),BrowserModule,HttpModule,BrowserAnimationsModule,Ionic2RatingModule, FormsModule,
-   // AngularFireModule.initializeApp(firebaseConfig.fire),
+    //AngularFireModule.initializeApp(firebaseConfig.fire),
     AngularFireModule.initializeApp(firebaseAuth),
     [NgxErrorsModule],
     AngularFireAuthModule
@@ -105,8 +106,10 @@ export function providers() {
     FormsModule,
     AuthService,
     AngularFireAuth,
+    AngularFireDatabase,
     StatusBar,
     NgInputPasswordComponent,
+    RegisterPage,
     SplashScreen
 
   ] 

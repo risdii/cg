@@ -21,8 +21,8 @@ myInput: any = '';
 openCategory(category) {
    this.navCtrl.push(ProductListPage, { category: category});
 }
-}
-export class slide{
+
+
 
 }
 

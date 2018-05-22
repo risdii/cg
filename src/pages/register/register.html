@@ -1,46 +1,41 @@
 <ion-header>
     <ion-navbar>
+            <button ion-button menuToggle>
+                    <ion-icon name="menu"></ion-icon>
+                </button>
         <ion-title>Register</ion-title>
     </ion-navbar>
 </ion-header>
-<ion-content text-center padding>
+<ion-content text-center>
   
-    <ion-card>
-        <form [formGroup]="loginForm" style="" novalidate padding>
+    
+        <form (ngSubmit)="signup()" [formGroup]="form">
             <ion-list>
-                <ion-item>
-                    <ion-label floating>Username</ion-label>
-                    <ion-input type="text"></ion-input>
+                <ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched']) }">
+                    <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
                 </ion-item>
-                <ion-item>
-                    <ion-label floating>Email</ion-label>
-                    <ion-input type="text"></ion-input>
+    
+                <div ngxErrors="email" #emailErrors="ngxErrors">
+                    <div [ngxError]="['email', 'required']" [when]="['touched']">It should be a valid email</div>
+                </div>
+    
+                <ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
+                    <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
                 </ion-item>
-
-                
-             <!--   *Not Needed* 
-                 <ion-item>
-                    <ion-label floating>Phone</ion-label>
-                    <ion-input type="text"></ion-input>
-                </ion-item> --> 
-
-
-                <ion-item>
-                    <ion-label floating>Password</ion-label>
-                    <ion-input type="password"></ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-label floating>Confirm Password</ion-label>
-                    <ion-input type="password"></ion-input>
-                </ion-item>
+    
+                <div ngxErrors="password" #passwordErrors="ngxErrors">
+                    <div [ngxError]="['minlength', 'required']" [when]="['touched']">It should be at least 6 characters</div>
+                </div>
             </ion-list>
-            <br>
-            <button style="background: #1786d9;" ion-button class="button-login" block color="dark">Submit</button>
-            <br>
+    
+            <div>
+                <div class="form-error">{{signupError}}</div>
+                <button ion-button full type="submit" [disabled]="!form.valid" style="background: #1786d9; width:110px; margin-left: 12px;">Sign up</button>
+            </div>
         </form>
-    </ion-card>
+   
 
-    <ion-row style="padding-bottom: 13px;">
+    <!-- <ion-row style="padding-bottom: 13px;">
         <ion-col>
             <button ion-button icon-right color="dark" outline>Signup with
                 <ion-icon name="logo-facebook"></ion-icon>
@@ -51,5 +46,5 @@
                 <ion-icon name="logo-twitter"></ion-icon>
             </button>
         </ion-col>
-    </ion-row>
+    </ion-row> -->
 </ion-content>

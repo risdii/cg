@@ -2,7 +2,7 @@ import { Component, Pipe, PipeTransform, trigger, state, style, transition, anim
 import { NavController, Platform, MenuController, Events } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterPage } from '../../pages/register/register';
-import { ForgotPassPage } from '../../pages/forgot-pass/forgot-pass';
+//import { ForgotPassPage } from '../../pages/forgot-pass/forgot-pass';
 import { HomePage } from '../../pages/home/home';
 import { AuthService } from '../../services/auth.service';
 
@@ -32,7 +32,19 @@ export class LoginPage {
     animateClass = { 'zoom-in': true };
    
 
-    constructor(private navCtrl: NavController, private auth: AuthService, private platform: Platform, private builder: FormBuilder, private nav: NavController, private event: Events, private menu: MenuController,fb: FormBuilder) {
+    constructor(
+      private navCtrl: NavController, 
+      private auth: AuthService, 
+      private platform: Platform, 
+      private builder: FormBuilder, 
+      private nav: NavController, 
+      private event: Events, 
+      private menu: MenuController,
+      fb: FormBuilder
+    
+    ) {
+
+
         this.nav = nav;
         this.menu = menu;
         this.platform = platform;
@@ -45,13 +57,14 @@ export class LoginPage {
         
   }
 
-  register(){
-    this.nav.push(RegisterPage) //navigate to RegisterPage
-  }
 
-  forgotpass(){
-    this.nav.push(ForgotPassPage) //navigate to ForgetPassPage
-  }
+  // register(){
+  //   this.nav.push(RegisterPage) //navigate to RegisterPage
+  // }
+
+  // forgotpass(){
+  //   this.nav.push(ForgotPassPage) //navigate to ForgetPassPage
+  // }
 
   login(){
     //this.nav.setRoot(HomePage) //navigate to HomePage
@@ -71,5 +84,8 @@ export class LoginPage {
 				error => this.loginError = error.message
 			);
 	
+  }
+  signup(){
+    this.navCtrl.push(RegisterPage);
   }
 }
