@@ -20,7 +20,7 @@
     height: 200px;
     background-size: cover;
     background-position: center;
-    border-bottom: 1px solid rgb(5, 5, 5);
+    border-bottom: 1px rgb(0, 0, 0);
 }
 
 .header-background-image::before {
@@ -148,3 +148,9 @@
     height: 5px;
     float: left;
 }
+
+.verticalLine {
+        height: 25px;
+        border: 1px solid #ffffff;
+        width: 1px;
+  }

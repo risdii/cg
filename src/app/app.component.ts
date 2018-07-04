@@ -11,19 +11,13 @@ import { CartPage } from '../pages/cart/cart';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { CustomerServicePage } from '../pages/customer-service/customer-service';
 import { LoginPage } from '../pages/login/login';
-import { AuthService } from '../services/auth.service';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { initializeApp } from 'firebase/app';
-import {FirebaseApp} from 'angularfire2'
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage : any;
+  rootPage = HomePage;
   home:any;
   deals:any;
-
-  email:any;
 
   @ViewChild(Nav) nav: Nav;
 
@@ -36,48 +30,20 @@ export class MyApp {
 
       ];
 
-  constructor(public platform: Platform,private afauth:AngularFireAuth, public menu: MenuController, public statusBar: StatusBar, splashScreen: SplashScreen,private auth: AuthService) {
+  constructor(platform: Platform,public menu: MenuController, statusBar: StatusBar, splashScreen: SplashScreen) {
     this.home = { title: 'Home', icon: 'md-home', component: HomePage };
-
-
-    this.auth.afAuth.authState
-      .subscribe(
-        user => {
-          if (user) {
-            this.rootPage = HomePage;
-          } else {
-            this.rootPage = HomePage;
-          }
-        },
-        () => {
-          this.rootPage = HomePage;
-        }
-      );
-
-      this.initializeApp();
-  }
-
-
-  initializeApp() {
-    //  this.rootPage = HomePage;
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+    platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      statusBar.styleDefault();
+      splashScreen.hide();
     });
-  
-    //
+  }
+
+   login(){
+    this.menu.close();
+      this.nav.push(LoginPage);
    }
-
-  login() {
-    this.menu.close();
-    this.auth.signOut();
-    this.nav.setRoot(LoginPage);
-  }
-
-  logout() {
-    this.menu.close();
-    this.auth.signOut();
-    this.nav.setRoot(HomePage);
-  }
 
    openCart(){
     this.menu.close();
@@ -90,8 +56,6 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
-
-  
 
 }
 

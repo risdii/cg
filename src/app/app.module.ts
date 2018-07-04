@@ -6,16 +6,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
-
-import { AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireModule } from 'angularfire2';
-import { AuthService } from '../services/auth.service';
-import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
-//import { firebaseConfig } from '../config/config'; 
-import { FormsModule } from '@angular/forms';
-import { NgxErrorsModule } from '@ultimate/ngxerrors';
-import { NgInputPasswordComponent } from 'ng-input-password/ng-input-password';
-
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
@@ -32,15 +22,6 @@ import { CustomerServicePage } from '../pages/customer-service/customer-service'
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { ForgotPassPage } from '../pages/forgot-pass/forgot-pass';
-
-const firebaseAuth = {
-  apiKey: "AIzaSyBSdeZaDmPTGPOO6st2TleoM2aJwYjQaI0",
-  authDomain: "chachasgrocers.firebaseapp.com",
-  databaseURL: "https://chachasgrocers.firebaseio.com",
-  projectId: "chachasgrocers",
-  storageBucket: "chachasgrocers.appspot.com",
-  messagingSenderId: "312509312959"
-};
 
 //Components
 import { ProductsLayoutComponent } from '../components/products-layout/products-layout';
@@ -68,18 +49,16 @@ let pages = [
     CustomerServicePage,
     LoginPage,
     RegisterPage,
-    NgInputPasswordComponent,
     ForgotPassPage
 ];
 
 export function declarations() {
-  return [pages,ProductsLayoutComponent,CarouselComponent,CategoryTileComponent,DealsComponent,CartComponent,  NgInputPasswordComponent];
+  return [pages,ProductsLayoutComponent,CarouselComponent,CategoryTileComponent,DealsComponent,CartComponent];
 }
 
 export function entryComponents() {
   return pages;
 }
-
 
 export function providers() {
   return [
@@ -90,28 +69,11 @@ export function providers() {
 
 @NgModule({
   declarations: declarations(),
-
-
   imports: [
-    
-    IonicModule.forRoot(MyApp),BrowserModule,HttpModule,BrowserAnimationsModule,Ionic2RatingModule, FormsModule,
-    //AngularFireModule.initializeApp(firebaseConfig.fire),
-    AngularFireModule.initializeApp(firebaseAuth),
-    [NgxErrorsModule],
-    AngularFireAuthModule
+    IonicModule.forRoot(MyApp),BrowserModule,HttpModule,BrowserAnimationsModule,Ionic2RatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: entryComponents(),
-  providers: [
-    FormsModule,
-    AuthService,
-    AngularFireAuth,
-    AngularFireDatabase,
-    StatusBar,
-    NgInputPasswordComponent,
-    RegisterPage,
-    SplashScreen
-
-  ] 
+  providers: providers()
 })
 export class AppModule {}
